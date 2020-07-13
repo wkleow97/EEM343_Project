@@ -1,0 +1,15 @@
+test1_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - left_rotary1
+    - left_link1
+    - left_link2
+    - left_rotary2
+    - left_effector
+    - right_rotary1
+    - right_link1
+    - right_link2
+    - right_rotary2
+    - right_effector
+  state_publish_rate:  25
+  action_monitor_rate: 10
