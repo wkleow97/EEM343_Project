@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="test1">
+    <link name="world"/>
+    <joint name="fixedbase" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    </joint>
+
+    <link name="base_link">
+        
+<inertial>
+            <origin xyz="0.0838510732065891 0.152816071328062 0.340789392445379" rpy="0 0 0" />
+            <mass value="0.334888633222162" />
+            <inertia ixx="0.000304477646882276" ixy="8.07014144817972E-20" ixz="2.1588633591573E-19" iyy="0.00442612046839941" iyz="-3.47799442108184E-05" izz="0.00436072794494586" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/base_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/base_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+  <joint name="camera_joint" type="fixed">
+    <axis xyz="0 0 1" />
+    <origin xyz="0.083 -0.342 0.254" rpy="0 0 1.57"/>
+    <parent link="base_link"/>
+    <child link="camera_link"/>
+  </joint>
+
+  <!-- Camera -->
+  <link name="camera_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.005 0.005 0.005"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.005 0.005 0.005"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+    <link name="RR1">
+        
+<inertial>
+            <origin xyz="2.77555756156289E-17 0.0420278894194755 0" rpy="0 0 0" />
+            <mass value="0.178646003293849" />
+            <inertia ixx="0.000107265792697991" ixy="1.22652595398072E-22" ixz="7.76330401286188E-24" iyy="7.70885233113255E-05" iyz="1.04273830847291E-21" izz="0.000106663614527085" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/RR1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/RR1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="right_rotary1" type="continuous">
+        <origin xyz="0.24385 -0.33943 0.14395" rpy="1.5708 0 0" />
+        <parent link="base_link" />
+        <child link="RR1" />
+        <axis xyz="0 1 0" />
+    </joint>
+    <link name="RL1">
+        
+<inertial>
+            <origin xyz="-1.11022302462516E-16 -2.1094237467878E-15 -0.038403448067606" rpy="0 0 0" />
+            <mass value="0.0377805304826052" />
+            <inertia ixx="2.66065433465292E-05" ixy="5.30653405766281E-21" ixz="4.55467853238826E-22" iyy="2.74129103076404E-05" iyz="8.98987049862964E-20" izz="1.63710439898444E-06" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/RL1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/RL1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="right_link1" type="continuous">
+        <origin xyz="0 0.09 0" rpy="0 0 1.5708" />
+        <parent link="RR1" />
+        <child link="RL1" />
+        <axis xyz="0 1 0" />
+    </joint>
+    <link name="RL2">
+        
+<inertial>
+            <origin xyz="0.0369294533162458 2.22044604925031E-15 0" rpy="0 0 0" />
+            <mass value="0.0196442474781642" />
+            <inertia ixx="8.78116796204284E-07" ixy="4.48608257029276E-20" ixz="2.83077563939317E-22" iyy="1.37124870117151E-05" iyz="8.99804957098311E-23" izz="1.33628362699767E-05" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/RL2.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/RL2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="right_link2" type="continuous">
+        <origin xyz="0 0 -0.08" rpy="3.1416 1.5708 0" />
+        <parent link="RL1" />
+        <child link="RL2" />
+        <axis xyz="0 1 0" />
+    </joint>
+    <link name="RR2">
+        
+<inertial>
+            <origin xyz="6.10622663543836E-16 -0.0353505426213748 1.2490009027033E-15" rpy="0 0 0" />
+            <mass value="0.0890059665728128" />
+            <inertia ixx="3.34811849325962E-05" ixy="7.71124760661646E-21" ixz="8.51563290514845E-22" iyy="2.60873781539216E-05" iyz="1.00054745792428E-21" izz="3.43451624913019E-05" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/RR2.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/RR2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="right_rotary2" type="continuous">
+        <origin xyz="0.08 0 0" rpy="-1.5708 0 1.5708" />
+        <parent link="RL2" />
+        <child link="RR2" />
+        <axis xyz="1 0 0" />
+    </joint>
+    <link name="REE">
+        
+<inertial>
+            <origin xyz="2.77555756156289E-17 -0.0275904487900549 0.000759811739890842" rpy="0 0 0" />
+            <mass value="0.0438430972450962" />
+            <inertia ixx="9.53560850425357E-06" ixy="3.30301603962521E-21" ixz="1.48127091971323E-21" iyy="1.33256208203119E-05" iyz="3.41080674681296E-07" izz="9.52104223283869E-06" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/REE.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/REE.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="right_effector" type="continuous">
+        <origin xyz="0 -0.045 0" rpy="3.1416 0 3.1416" />
+        <parent link="RR2" />
+        <child link="REE" />
+        <axis xyz="0 1 0" />
+    </joint>
+    <link name="LR1">
+        
+<inertial>
+            <origin xyz="0 0.0420278894194755 5.55111512312578E-17" rpy="0 0 0" />
+            <mass value="0.178646003293849" />
+            <inertia ixx="0.000107265792697991" ixy="2.876242374885E-21" ixz="-7.77591068656014E-24" iyy="7.70885233113254E-05" iyz="6.27751104669501E-22" izz="0.000106663614527085" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/LR1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/LR1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="left_rotary1" type="continuous">
+        <origin xyz="-0.0761489267934124 -0.339431541154881 0.14394830717308" rpy="1.5707963267949 0 0" />
+        <parent link="base_link" />
+        <child link="LR1" />
+        <axis xyz="0 1 0" />
+    </joint>
+    <link name="LL1">
+        
+<inertial>
+            <origin xyz="9.71445146547012E-16 -2.06779038336435E-15 -0.0384034480676049" rpy="0 0 0" />
+            <mass value="0.0377805304826052" />
+            <inertia ixx="2.66065433465291E-05" ixy="5.65952169766214E-21" ixz="3.78079932270797E-22" iyy="2.74129103076404E-05" iyz="9.17049244362448E-20" izz="1.63710439898444E-06" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/LL1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/LL1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="left_link1" type="continuous">
+        <origin xyz="0 0.09 0" rpy="0 0 1.5707963267949" />
+        <parent link="LR1" />
+        <child link="LL1" />
+        <axis xyz="0 1 0" />
+    </joint>
+    <link name="LL2">
+        
+<inertial>
+            <origin xyz="0.0369294533162458 2.17881268582687E-15 -2.77555756156289E-17" rpy="0 0 0" />
+            <mass value="0.0196442474781642" />
+            <inertia ixx="8.78116796204283E-07" ixy="4.55009142387539E-20" ixz="-1.54154067169773E-22" iyy="1.37124870117151E-05" iyz="1.98065429083425E-22" izz="1.33628362699766E-05" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/LL2.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/LL2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="left_link2" type="continuous">
+        <origin xyz="0 0 -0.0800000000000018" rpy="3.14159265358979 1.5707963267949 0" />
+        <parent link="LL1" />
+        <child link="LL2" />
+        <axis xyz="0 1 0" />
+    </joint>
+    <link name="LR2">
+        
+<inertial>
+            <origin xyz="6.52256026967279E-16 -0.0353505426213759 1.66533453693773E-16" rpy="0 0 0" />
+            <mass value="0.0890059665728128" />
+            <inertia ixx="3.34811849325963E-05" ixy="2.64696048119377E-21" ixz="4.44867561929884E-22" iyy="2.60873781539216E-05" iyz="1.74929619483012E-21" izz="3.43451624913019E-05" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/LR2.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/LR2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="left_rotary2" type="continuous">
+        <origin xyz="0.08 0 0" rpy="-1.5707963267949 0 1.5707963267949" />
+        <parent link="LL2" />
+        <child link="LR2" />
+        <axis xyz="1 0 0" />
+    </joint>
+    <link name="LEE">
+        
+<inertial>
+            <origin xyz="2.77555756156289E-17 -0.0275904487900548 0.000759811739890814" rpy="0 0 0" />
+            <mass value="0.0438430972450961" />
+            <inertia ixx="9.53560850425356E-06" ixy="3.20656145032519E-21" ixz="7.16213902178261E-23" iyy="1.33256208203119E-05" iyz="3.41080674681296E-07" izz="9.52104223283868E-06" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/LEE.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://test1/meshes/LEE.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="left_effector" type="continuous">
+        <origin xyz="0 -0.0450000000000007 0" rpy="3.14159265358979 0 3.14159265358979" />
+        <parent link="LR2" />
+        <child link="LEE" />
+        <axis xyz="0 1 0" />
+    </joint>
+    
+    <transmission name="trans_right_rotary1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_rotary1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_rotary1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_right_link1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_link1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_link1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_right_link2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_link2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_link2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_right_rotary2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_rotary2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_rotary2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_right_effector">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_effector">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_effector_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_left_rotary1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_rotary1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_rotary1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_left_link1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_link1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_link1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_left_link2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_link2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_link2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_left_rotary2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_rotary2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_rotary2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_left_effector">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_effector">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_effector_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+
+  <!-- camera -->
+  <gazebo reference="camera_link">
+    <sensor type="camera" name="camera1">
+      <update_rate>30.0</update_rate>
+      <camera name="base">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>test1/camera1</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+</robot>
