@@ -25,4 +25,4 @@ roslaunch test1_moveit_config test1_planning_execution.launch
 spawn pot (left):
 rosrun gazebo_ros spawn_model -file `rospack find pot`/urdf/pot.urdf -urdf -x -0.07615 -y -0.19943 -z 1 -model pot
 
-
+Any ideas on how to improve the project or better approach of doing the project? Email to wkleow97@gmail.com. Thanks in advance
