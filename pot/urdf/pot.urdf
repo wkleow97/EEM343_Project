@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="pot">
+  <link
+    name="pot">
+    <inertial>
+      <origin
+        xyz="-1.3739E-06 8.80599063571704E-18 0.03096"
+        rpy="0 0 0" />
+      <mass
+        value="0.20831" />
+      <inertia
+        ixx="0.00012186"
+        ixy="7.12620209949628E-21"
+        ixz="-6.567E-09"
+        iyy="0.00012023"
+        iyz="2.8161508943732E-21"
+        izz="0.00012336" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pot/meshes/pot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        <texture
+          filename="package://pot/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pot/meshes/pot.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>
